@@ -1,4 +1,4 @@
-import styles from "./app.module.css";
+import styles from "./App.module.css";
 import { useState, useEffect } from "react";
 import AppHeader from "../AppHeader/AppHeader ";
 import BurgerIngredients from "../BurgerIngredients/BurgerIngredients";
@@ -7,15 +7,16 @@ import { getDataIngredients } from "../../utils/api";
 
 function App() {
   const [data, setData] = useState([]);
-  
+  const [error, setError] = useState(null);
+
   const getBurgerData = () => {
     getDataIngredients()
       .then((res) => {
         setData(res.data);
       })
       .catch((err) => {
-        console.log('err', err)
-      })
+        setError(err); 
+      });
   };
   
   useEffect(() => {
@@ -24,15 +25,19 @@ function App() {
 
   return (
     <div className={`custom-scroll ${styles.app}`}>
-      
-        <>
-          <AppHeader />
-          <main className={styles.main}>
-            <BurgerIngredients data={data} />
-            <BurgerConstructor data={data} />
-          </main>
-        </>
-     
+      <>
+        <AppHeader />
+        <main className={styles.main}>
+          {error ? (
+            <div>Произошла ошибка: {error}</div>
+          ) : (
+            <>
+              <BurgerIngredients data={data} />
+              <BurgerConstructor data={data} />
+            </>
+          )}
+        </main>
+      </>
     </div>
   );
 }
