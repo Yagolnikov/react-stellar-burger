@@ -20,7 +20,7 @@ function Modal({ children, closePopup }) {
     return () => {
       document.removeEventListener("keydown", closePopupEsc);
     };
-  }, []); // Пустой массив зависимостей
+  }, []);
 
   return ReactDOM.createPortal(
     <>
@@ -32,7 +32,7 @@ function Modal({ children, closePopup }) {
         {children}
       </div>
     </>,
-    root
+    document.getElementById("modals")
   );
 }
 
