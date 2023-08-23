@@ -15,11 +15,12 @@
 
 .navbar {
   align-self: center;
+  width: 1280px; 
 }
 
 @media (max-width: 1700px) {
   .navbar {
-    min-width: 90%;
+    width: 90%;
   }
 }
 
