@@ -3,12 +3,11 @@ import style from "./ingredient-details.module.css";
 
 function IngredientDetails({ myIngredient }) {
   return (
-    <>
       <div className={style.ingredientDetails}>
         <h2 className={`${style.title} text text_type_main-large pb-5`}>
           Детали ингредиента
         </h2>
-        <img src={myIngredient.image_large} alt="Изображение ингредиента"></img>
+        <img src={myIngredient.image_large} alt={myIngredient.name}></img>
         <span className="text text_type_main-medium pt-4">
           {myIngredient.name}
         </span>
@@ -47,7 +46,6 @@ function IngredientDetails({ myIngredient }) {
           </li>
         </ul>
       </div>
-    </>
   );
 }
 

@@ -33,14 +33,12 @@ function BurgerIngredients({ data }) {
     main: document.querySelector("#main"),
   };
 
-  // Обработчик клика по табам
   const tabsClick = (item) => {
     setCurrent(item);
     if (item) tabs[item].scrollIntoView({ behavior: "auto" });
   };
 
   return (
-    <>
       <section className={style.burgerIngredients}>
         <h1 className="text text_type_main-large">Соберите бургер</h1>
         <div className={style.tab}>
@@ -98,7 +96,6 @@ function BurgerIngredients({ data }) {
           </Modal>
         )}
       </section>
-    </>
   );
 }
 

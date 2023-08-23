@@ -3,7 +3,6 @@ import img from "../../images/img.svg";
 
 function OrderDetails() {
   return (
-    <>
       <ul className={style.orderDetails}>
         <li className={style.li}>
           <p className={`${style.number} text text_type_digits-large pb-5`}>
@@ -25,7 +24,6 @@ function OrderDetails() {
           </p>
         </li>
       </ul>
-    </>
   );
 }
 
